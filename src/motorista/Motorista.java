@@ -36,18 +36,30 @@ public class Motorista {
 
             //
             System.out.println("Pedindo cadastro de transfer");
-            
+
             Gson gson = new Gson();
             serventeMotorista.cadastrarTransfer(gson.toJson(tm1));
             //
 
             TimeUnit.SECONDS.sleep(10);
-            
+
             //
             System.out.println("Pedindo alteração de transfer");
-            Storage.meusTransfers.get(0).setPreco(78);
-            serventeMotorista.alterarTransfer(gson.toJson(Storage.meusTransfers.get(0)));
+            TransferModel transferParaModificar = MotoristaManager.meusTransfers.get(0).getTransfer();
+            transferParaModificar.setPreco(78);
+
+            serventeMotorista.alterarTransfer(gson.toJson(transferParaModificar));
             //
+
+            TimeUnit.SECONDS.sleep(2);
+
+            //
+            int clienteId = MotoristaManager.meusTransfers.get(0).getInteressados().get(0);
+
+            System.out.println("Enviando proposta, novo valor: 50 reais p/ cliente " + clienteId);
+            serventeMotorista.enviarProposta(1, 50, clienteId);
+
+            MotoristaManager.listaTransfersLocais();
 
         } catch (Exception e) {
             e.printStackTrace();

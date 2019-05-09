@@ -16,5 +16,5 @@ public interface InterfaceServMotorista extends Remote {
     public void alterarTransfer(String tm, InterfaceMotorista motorista) throws RemoteException;
 
     //Proposta - redução de preço para um cliente específico
-    public void realizarProposta() throws RemoteException;
+    public void realizarProposta(int transferId, double novoPreco, int clienteId) throws RemoteException;
 }

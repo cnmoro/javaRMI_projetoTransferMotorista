@@ -5,6 +5,7 @@ import interfaces.InterfaceServMotorista;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import serventes.ServenteMotorista;
 
 /**
@@ -35,11 +36,13 @@ public class Motorista {
 
             //
             System.out.println("Pedindo cadastro de transfer");
-
+            
             Gson gson = new Gson();
             serventeMotorista.cadastrarTransfer(gson.toJson(tm1));
             //
 
+            TimeUnit.SECONDS.sleep(10);
+            
             //
             System.out.println("Pedindo alteração de transfer");
             Storage.meusTransfers.get(0).setPreco(78);

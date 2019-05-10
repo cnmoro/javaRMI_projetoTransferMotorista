@@ -1,7 +1,6 @@
 package motorista;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  *
@@ -13,14 +12,14 @@ public class TransferModel implements Serializable {
     double preco;
     int numPassageiros;
     String tipoVeiculo;
-    Date dataHora;
+    String dataHora;
     String itinerario;
     boolean reservado;
 
     public TransferModel() {
     }
 
-    public TransferModel(int id, double preco, int numPassageiros, String tipoVeiculo, Date dataHora, String intinerario, boolean reservado) {
+    public TransferModel(int id, double preco, int numPassageiros, String tipoVeiculo, String dataHora, String intinerario, boolean reservado) {
         this.id = id;
         this.preco = preco;
         this.numPassageiros = numPassageiros;
@@ -30,7 +29,7 @@ public class TransferModel implements Serializable {
         this.reservado = reservado;
     }
 
-    public TransferModel(double preco, int numPassageiros, String tipoVeiculo, Date dataHora, String intinerario) {
+    public TransferModel(double preco, int numPassageiros, String tipoVeiculo, String dataHora, String intinerario) {
         this.preco = preco;
         this.numPassageiros = numPassageiros;
         this.tipoVeiculo = tipoVeiculo;
@@ -71,11 +70,11 @@ public class TransferModel implements Serializable {
         this.tipoVeiculo = tipoVeiculo;
     }
 
-    public Date getDataHora() {
+    public String getDataHora() {
         return dataHora;
     }
 
-    public void setDataHora(Date dataHora) {
+    public void setDataHora(String dataHora) {
         this.dataHora = dataHora;
     }
 
